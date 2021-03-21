@@ -28,6 +28,7 @@
         app:layout_constraintStart_toStartOf="@id/ivTime1"
         app:layout_constraintEnd_toEndOf="@id/ivTime1"
         app:drawableTopCompat="@drawable/ic_clock"
+        android:drawablePadding="10dp"
         android:textColor="@color/colorAccent"
         android:textSize="25sp"
         android:text="@string/select_time" />
@@ -40,7 +41,7 @@
         app:layout_constraintBottom_toTopOf="@id/ivTime2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textColor="@color/colorAccent"
         android:text="@string/default_time" />
 
@@ -64,6 +65,7 @@
         app:layout_constraintBottom_toBottomOf="@id/ivTime2"
         app:layout_constraintStart_toStartOf="@id/ivTime2"
         app:layout_constraintEnd_toEndOf="@id/ivTime2"
+        android:drawablePadding="10dp"
         app:drawableTopCompat="@drawable/ic_clock"
         android:textColor="@color/colorAccent"
         android:textSize="25sp"
