@@ -16,7 +16,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
-        android:background="@drawable/card_rectangle"
+        android:src="@drawable/clock_pink"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         android:contentDescription="@null"/>
 
     <TextView
@@ -27,9 +30,7 @@
         app:layout_constraintBottom_toBottomOf="@id/ivTime1"
         app:layout_constraintStart_toStartOf="@id/ivTime1"
         app:layout_constraintEnd_toEndOf="@id/ivTime1"
-        app:drawableTopCompat="@drawable/ic_clock"
-        android:drawablePadding="10dp"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         android:text="@string/select_time" />
 
@@ -41,8 +42,10 @@
         app:layout_constraintBottom_toTopOf="@id/ivTime2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="40sp"
-        android:textColor="@color/colorAccent"
+        android:background="@drawable/card_rectangle"
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:textColor="@color/colorGray"
         android:text="@string/default_time" />
 
     <ImageButton
@@ -54,7 +57,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
-        android:background="@drawable/card_rectangle"
+        android:src="@drawable/clock_blue"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         android:contentDescription="@null"/>
 
     <TextView
@@ -65,9 +71,7 @@
         app:layout_constraintBottom_toBottomOf="@id/ivTime2"
         app:layout_constraintStart_toStartOf="@id/ivTime2"
         app:layout_constraintEnd_toEndOf="@id/ivTime2"
-        android:drawablePadding="10dp"
-        app:drawableTopCompat="@drawable/ic_clock"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         android:text="@string/select_time" />
 

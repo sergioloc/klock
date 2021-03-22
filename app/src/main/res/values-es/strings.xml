@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Klock</string>
     <string name="default_time">0h 0min</string>
-    <string name="select_time">Time</string>
+    <string name="select_time">Hora</string>
 </resources>
