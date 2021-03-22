@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
             hour2 = hour
             min2 = minute
             when {
-                minute == 0 -> tvTime1.text = "$hour:${minute}0"
-                minute < 10 -> tvTime1.text = "$hour:0${minute}"
+                minute == 0 -> tvTime2.text = "$hour:${minute}0"
+                minute < 10 -> tvTime2.text = "$hour:0${minute}"
                 else -> tvTime2.text = "$hour:${minute}"
             }
             if (hour1 != -1 && hour2 != -1 && min1 != -1 && min2 != -1)
