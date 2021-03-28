@@ -12,4 +12,10 @@
         <item name="android:colorControlActivated">@color/colorAccent2</item>
     </style>
 
+    <!-- Pick number theme -->
+    <style name="NumberPicker" parent="Theme.AppCompat.Light">
+        <item name="android:colorAccent">@color/colorGray</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>

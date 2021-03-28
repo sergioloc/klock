@@ -1,8 +1,12 @@
 package com.slc.klock
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.view.Window
+import android.widget.NumberPicker
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -20,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         ivTime1.setOnClickListener { showTimePicker1() }
         ivTime2.setOnClickListener { showTimePicker2() }
+        tvCount.setOnClickListener { showTimeIncrement() }
     }
 
     @SuppressLint("SetTextI18n")
@@ -54,6 +59,26 @@ class MainActivity : AppCompatActivity() {
                 setOperation()
         }
         TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+    }
+
+    private fun showTimeIncrement(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_time_increment)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val npHour = dialog.findViewById(R.id.npHour) as NumberPicker
+        val npMinute = dialog.findViewById(R.id.npMinute) as NumberPicker
+        val btnAccept = dialog.findViewById(R.id.tvAccept) as TextView
+
+        npHour.minValue = 0
+        npHour.maxValue = 23
+        npMinute.minValue = 0
+        npMinute.maxValue = 59
+
+        btnAccept.setOnClickListener { dialog.dismiss() }
+
+        dialog.show()
     }
 
     @SuppressLint("SetTextI18n")

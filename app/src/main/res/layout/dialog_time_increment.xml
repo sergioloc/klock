@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_time_dialog">
+
+    <NumberPicker
+        android:id="@+id/npHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/npMinute"
+        android:theme="@style/NumberPicker"/>
+
+    <TextView
+        android:id="@+id/tvHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/npHour"
+        app:layout_constraintBottom_toBottomOf="@id/npHour"
+        app:layout_constraintStart_toEndOf="@id/npHour"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:text="@string/hour"/>
+
+    <NumberPicker
+        android:id="@+id/npMinute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/npHour"
+        app:layout_constraintBottom_toBottomOf="@id/npHour"
+        app:layout_constraintStart_toEndOf="@id/npHour"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="30dp"
+        android:theme="@style/NumberPicker" />
+
+    <TextView
+        android:id="@+id/tvMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/npMinute"
+        app:layout_constraintBottom_toBottomOf="@id/npMinute"
+        app:layout_constraintStart_toEndOf="@id/npMinute"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:text="@string/minutes"/>
+
+    <TextView
+        android:id="@+id/tvAccept"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/npMinute"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="@string/accept"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

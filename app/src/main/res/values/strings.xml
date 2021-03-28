@@ -2,4 +2,7 @@
     <string name="app_name">Klock</string>
     <string name="default_time">0h 0min</string>
     <string name="select_time">Time</string>
+    <string name="hour">h</string>
+    <string name="minutes">min</string>
+    <string name="accept">Accept</string>
 </resources>
