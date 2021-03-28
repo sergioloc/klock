@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
     private var hour2 = -1
     private var min1 = -1
     private var min2 = -1
-    var hourCount = 0
-    var minCount = 0
+    private var hourCount = 0
+    private var minCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +27,41 @@ class MainActivity : AppCompatActivity() {
         ivTime1.setOnClickListener { showTimePicker1() }
         ivTime2.setOnClickListener { showTimePicker2() }
         tvCount.setOnClickListener { showTimeIncrement() }
+
+        ivTime1.setOnLongClickListener {
+            resetTime1()
+            resetCount()
+            true
+        }
+        ivTime2.setOnLongClickListener {
+            resetTime2()
+            resetCount()
+            true
+        }
+        tvCount.setOnLongClickListener {
+            resetCount()
+            resetTime1()
+            resetTime2()
+            true
+        }
+    }
+
+    private fun resetTime1(){
+        tvTime1.text = resources.getString(R.string.select_time)
+        hour1 = -1
+        min1 = -1
+    }
+
+    private fun resetTime2(){
+        tvTime2.text = resources.getString(R.string.select_time)
+        hour2 = -1
+        min2 = -1
+    }
+
+    private fun resetCount(){
+        tvCount.text = resources.getString(R.string.default_time)
+        hourCount = 0
+        minCount = 0
     }
 
     @SuppressLint("SetTextI18n")
@@ -42,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             }
             if (hour1 != -1 && hour2 != -1 && min1 != -1 && min2 != -1)
                 setOperation()
-            else
+            else if (hourCount != 0 || minCount != 0)
                 incrementTime()
         }
         TimePickerDialog(this, R.style.PinkDialog, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
@@ -103,6 +138,7 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun incrementTime(){
         if (hour1 != -1 && min1 != -1){
             hour2 = hour1 + hourCount
