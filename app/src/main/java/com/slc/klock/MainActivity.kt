@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showTimeIncrement(){
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -68,15 +69,29 @@ class MainActivity : AppCompatActivity() {
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
         val npHour = dialog.findViewById(R.id.npHour) as NumberPicker
-        val npMinute = dialog.findViewById(R.id.npMinute) as NumberPicker
+        val npMinutes = dialog.findViewById(R.id.npMinutes) as NumberPicker
         val btnAccept = dialog.findViewById(R.id.tvAccept) as TextView
+
+        var hour = ""
+        var minutes = ""
 
         npHour.minValue = 0
         npHour.maxValue = 23
-        npMinute.minValue = 0
-        npMinute.maxValue = 59
+        npMinutes.minValue = 0
+        npMinutes.maxValue = 59
 
-        btnAccept.setOnClickListener { dialog.dismiss() }
+        npHour.setOnValueChangedListener { _, _, newVal ->
+            hour = newVal.toString()
+        }
+
+        npMinutes.setOnValueChangedListener { _, _, newVal ->
+            minutes = newVal.toString()
+        }
+
+        btnAccept.setOnClickListener {
+            tvCount.text = "${hour}h ${minutes}min"
+            dialog.dismiss()
+        }
 
         dialog.show()
     }

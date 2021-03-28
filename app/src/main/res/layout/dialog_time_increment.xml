@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/npMinute"
+        app:layout_constraintEnd_toStartOf="@id/npMinutes"
         android:theme="@style/NumberPicker"/>
 
     <TextView
@@ -28,7 +28,7 @@
         android:text="@string/hour"/>
 
     <NumberPicker
-        android:id="@+id/npMinute"
+        android:id="@+id/npMinutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/npHour"
@@ -39,12 +39,12 @@
         android:theme="@style/NumberPicker" />
 
     <TextView
-        android:id="@+id/tvMin"
+        android:id="@+id/tvMinutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/npMinute"
-        app:layout_constraintBottom_toBottomOf="@id/npMinute"
-        app:layout_constraintStart_toEndOf="@id/npMinute"
+        app:layout_constraintTop_toTopOf="@id/npMinutes"
+        app:layout_constraintBottom_toBottomOf="@id/npMinutes"
+        app:layout_constraintStart_toEndOf="@id/npMinutes"
         android:textSize="15sp"
         android:textColor="@color/black"
         android:text="@string/minutes"/>
@@ -53,7 +53,7 @@
         android:id="@+id/tvAccept"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/npMinute"
+        app:layout_constraintTop_toBottomOf="@id/npMinutes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
