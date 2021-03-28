@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     private var hour2 = -1
     private var min1 = -1
     private var min2 = -1
+    var hourCount = 0
+    var minCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,8 @@ class MainActivity : AppCompatActivity() {
             }
             if (hour1 != -1 && hour2 != -1 && min1 != -1 && min2 != -1)
                 setOperation()
+            else
+                incrementTime()
         }
         TimePickerDialog(this, R.style.PinkDialog, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
     }
@@ -72,28 +76,48 @@ class MainActivity : AppCompatActivity() {
         val npMinutes = dialog.findViewById(R.id.npMinutes) as NumberPicker
         val btnAccept = dialog.findViewById(R.id.tvAccept) as TextView
 
-        var hour = ""
-        var minutes = ""
-
         npHour.minValue = 0
         npHour.maxValue = 23
         npMinutes.minValue = 0
         npMinutes.maxValue = 59
+        hourCount = 0
+        minCount = 0
 
         npHour.setOnValueChangedListener { _, _, newVal ->
-            hour = newVal.toString()
+            hourCount = newVal
         }
 
         npMinutes.setOnValueChangedListener { _, _, newVal ->
-            minutes = newVal.toString()
+            minCount = newVal
         }
 
         btnAccept.setOnClickListener {
-            tvCount.text = "${hour}h ${minutes}min"
+            tvCount.text = "${hourCount}h ${minCount}min"
+            if (hourCount == 0 && minCount == 0)
+                tvTime2.text = resources.getString(R.string.select_time)
+            else
+                incrementTime()
             dialog.dismiss()
         }
 
         dialog.show()
+    }
+
+    private fun incrementTime(){
+        if (hour1 != -1 && min1 != -1){
+            hour2 = hour1 + hourCount
+            min2 = min1 + minCount
+            if (min2 > 59){
+                min2 -= 60
+                hour2++
+            }
+            if (hour2 > 23)
+                hour2 -= 24
+            if (min2 < 10)
+                tvTime2.text = "$hour2:0${min2}"
+            else
+                tvTime2.text = "$hour2:${min2}"
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -101,9 +125,9 @@ class MainActivity : AppCompatActivity() {
         when {
             hour1 == hour2 && min1 == min2 -> tvCount.text = resources.getString(R.string.default_time)
             hour1 > hour2 -> tvCount.text = calculateDifference(hour1, min1, hour2, min2)
-            hour1 < hour2 -> tvCount.text = "- " + calculateDifference(hour2, min2, hour1, min1)
+            hour1 < hour2 -> tvCount.text = /*"- " +*/ calculateDifference(hour2, min2, hour1, min1)
             min1 > min2 -> tvCount.text = calculateDifference(hour1, min1, hour2, min2)
-            else -> tvCount.text = "- " + calculateDifference(hour2, min2, hour1, min1)
+            else -> tvCount.text = /*"- " +*/ calculateDifference(hour2, min2, hour1, min1)
         }
     }
 
