@@ -3,11 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    namespace = "com.slc.klock"
+    compileSdk = 36
+
     defaultConfig {
         applicationId "com.slc.klock"
         minSdkVersion 21
-        targetSdkVersion 35
-        compileSdk 35
+        targetSdkVersion 36
         versionCode 4
         versionName "1.3"
 
@@ -20,7 +22,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'com.slc.klock'
 }
 
 dependencies {
