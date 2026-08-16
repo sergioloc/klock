@@ -56,7 +56,7 @@ Thank you for using Klock.
 - Copy & paste the files or code to any other project
 - Print the code as a physical paper
 
-> Copyright 2021 ©
+> Copyright 2026 ©
 
 ## Available in:
 Android: https://play.google.com/store/apps/details?id=com.slc.klock
